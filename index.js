@@ -1,6 +1,24 @@
 // console.log("The quick brown fox jumps over the lazy dog.".split(""));
 
 
+document.addEventListener("DOMContentLoaded", function() {
+    // Create an invisible contenteditable div
+    let invisibleDiv = document.createElement("div");
+    invisibleDiv.setAttribute("contenteditable", "true");
+    invisibleDiv.style.position = "absolute";
+    invisibleDiv.style.top = "-1000px";
+    document.body.appendChild(invisibleDiv);
+
+    // Set focus to the invisible div
+    invisibleDiv.focus();
+
+    // Remove the invisible div after setting the focus
+    setTimeout(() => {
+        document.body.removeChild(invisibleDiv);
+    }, 0);
+});
+
+
 const paragraph = "the quick brown fox jumps over the lazy dog.";
 let paragraphElement = document.getElementById("paragraph");
 
