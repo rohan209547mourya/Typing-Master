@@ -1,6 +1,6 @@
 // console.log("The quick brown fox jumps over the lazy dog.".split(""));
 
-
+// what is the below code doing?
 document.addEventListener("DOMContentLoaded", function() {
     // Create an invisible contenteditable div
     let invisibleDiv = document.createElement("div");
@@ -12,11 +12,20 @@ document.addEventListener("DOMContentLoaded", function() {
     // Set focus to the invisible div
     invisibleDiv.focus();
 
+    console.log("focus set")
+
     // Remove the invisible div after setting the focus
     setTimeout(() => {
         document.body.removeChild(invisibleDiv);
     }, 0);
+
+    // Open virtual keyboard on mobile device
+    invisibleDiv.addEventListener("focus", function() {
+        this.scrollIntoView();
+    });
 });
+
+
 
 
 const paragraph = "the quick brown fox jumps over the lazy dog.";
